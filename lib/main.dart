@@ -148,41 +148,11 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: new Row(
                           children: <Widget>[
                             new Expanded(child: new Container()),
-                            new IconButton(
-                              splashColor: lightAccentColor,
-                              highlightColor: Colors.transparent,
-                              icon: new Icon(Icons.skip_previous,
-                                  color: Colors.white, size: 35.0),
-                              onPressed: () {},
-                            ),
+                            new PreviousButton(),
                             new Expanded(child: new Container()),
-                            new RawMaterialButton(
-                              shape: new CircleBorder(),
-                              fillColor: Colors.white,
-                              splashColor: lightAccentColor,
-                              highlightColor: lightAccentColor.withOpacity(0.5),
-                              elevation: 10.0,
-                              highlightElevation: 5.0,
-                              onPressed: () {
-                                //TODO:
-                              },
-                              child: new Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: new Icon(
-                                  Icons.play_arrow,
-                                  color: darkAccentColor,
-                                  size: 35.0,
-                                ),
-                              ),
-                            ),
+                            new PlayButton(),
                             new Expanded(child: new Container()),
-                            new IconButton(
-                              splashColor: lightAccentColor,
-                              highlightColor: Colors.transparent,
-                              icon: new Icon(Icons.skip_next,
-                                  color: Colors.white, size: 35.0),
-                              onPressed: () {},
-                            ),
+                            new NextButton(),
                             new Expanded(child: new Container()),
                           ],
                         ),
@@ -196,6 +166,69 @@ class _MyHomePageState extends State<MyHomePage> {
         )
         // This trailing comma makes auto-formatting nicer for build methods.
         );
+  }
+}
+
+class PreviousButton extends StatelessWidget {
+  const PreviousButton({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return new IconButton(
+      splashColor: lightAccentColor,
+      highlightColor: Colors.transparent,
+      icon: new Icon(Icons.skip_previous,
+          color: Colors.white, size: 35.0),
+      onPressed: () {},
+    );
+  }
+}
+
+class PlayButton extends StatelessWidget {
+  const PlayButton({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return new RawMaterialButton(
+      shape: new CircleBorder(),
+      fillColor: Colors.white,
+      splashColor: lightAccentColor,
+      highlightColor: lightAccentColor.withOpacity(0.5),
+      elevation: 10.0,
+      highlightElevation: 5.0,
+      onPressed: () {
+        //TODO:
+      },
+      child: new Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: new Icon(
+          Icons.play_arrow,
+          color: darkAccentColor,
+          size: 35.0,
+        ),
+      ),
+    );
+  }
+}
+
+class NextButton extends StatelessWidget {
+  const NextButton({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return new IconButton(
+      splashColor: lightAccentColor,
+      highlightColor: Colors.transparent,
+      icon: new Icon(Icons.skip_next,
+          color: Colors.white, size: 35.0),
+      onPressed: () {},
+    );
   }
 }
 
