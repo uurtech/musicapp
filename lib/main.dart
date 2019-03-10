@@ -206,10 +206,18 @@ class RadialSeekBarPainter extends CustomPainter{
        thumbPaint = new Paint()
         ..color = thumbColor
         ..style = PaintingStyle.fill;
-        
+
   @override
   void paint(Canvas canvas, Size size) {
+
+    final center = new Offset(size.width / 2, size.height / 2);
+    final radius = min(size.width, size.height) / 2;
     // TODO: implement paint
+    canvas.drawCircle(
+      center,
+      radius,
+      trackPaint,
+    );
   }
 
   @override
