@@ -69,7 +69,25 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+        leading: new IconButton(
+          icon: new Icon(
+            Icons.arrow_back,
+          ),
+          color: const Color(0xFFDDDDDD),
+          onPressed: () {},
+        ),
         title: Text(widget.title),
+        actions: <Widget>[
+          new IconButton(
+          icon: new Icon(
+            Icons.menu,
+          ),
+          color: const Color(0xFFDDDDDD),
+          onPressed: () {},
+        ),
+        ],
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
@@ -91,21 +109,12 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
+           
+          
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+       // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
