@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_player/theme.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,6 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -66,55 +68,118 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-        leading: new IconButton(
-          icon: new Icon(
-            Icons.arrow_back,
+        appBar: AppBar(
+          // Here we take the value from the MyHomePage object that was created by
+          // the App.build method, and use it to set our appbar title.
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
+          leading: new IconButton(
+            icon: new Icon(
+              Icons.arrow_back_ios,
+            ),
+            color: const Color(0xFFDDDDDD),
+            onPressed: () {},
           ),
-          color: const Color(0xFFDDDDDD),
-          onPressed: () {},
-        ),
-        title: Text(widget.title),
-        actions: <Widget>[
-          new IconButton(
-          icon: new Icon(
-            Icons.menu,
-          ),
-          color: const Color(0xFFDDDDDD),
-          onPressed: () {},
-        ),
-        ],
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-           
-          
+          title: Text(widget.title),
+          actions: <Widget>[
+            new IconButton(
+              icon: new Icon(
+                Icons.menu,
+              ),
+              color: const Color(0xFFDDDDDD),
+              onPressed: () {},
+            ),
           ],
         ),
-      ),
-       // This trailing comma makes auto-formatting nicer for build methods.
-    );
+        body: new Column(
+          children: <Widget>[
+            new Expanded(
+              child: new Container(),
+            ),
+            new Container(
+              width: double.infinity,
+              height: 125.0,
+            ),
+            new Container(
+              color: accentColor,
+              child: new Padding(
+                padding: const EdgeInsets.only(top: 40.0, bottom: 50.0),
+                child: new Column(
+                  children: <Widget>[
+                    new RichText(
+                        text: new TextSpan(text: '', children: [
+                      new TextSpan(
+                        text: 'Song Title\n',
+                        style: new TextStyle(
+                          color: Colors.white,
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 4.0,
+                          height: 1.5,
+                        ),
+                      ),
+                      new TextSpan(
+                          text: 'Artist Name',
+                          style: new TextStyle(
+                            color: Colors.white.withOpacity(0.75),
+                            fontSize: 12.0,
+                            letterSpacing: 3.0,
+                            height: 1.5,
+                          )),
+                    ])),
+                    new Padding(
+                      padding: const EdgeInsets.only(top: 40.0),
+                      child: new Row(
+                      children: <Widget>[
+
+                        new Expanded(child: new Center(
+                          child: new Container(
+                            width: 125.0,
+                            height: 125.0,
+                          ),
+                        )),
+                        new IconButton(
+                          icon: new Icon(Icons.skip_previous, color: Colors.white, size: 35.0),
+                          onPressed: () {},
+                        ),
+                        new Expanded(child: new Container()),
+
+                        new RawMaterialButton(
+                          shape: new CircleBorder(),
+                          fillColor: Colors.white,
+                          splashColor: lightAccentColor,
+                          highlightColor: lightAccentColor.withOpacity(0.5),
+                          elevation: 10.0,
+                          highlightElevation: 5.0,
+                          onPressed: (){
+                            //TODO:
+                          },
+                          child: new Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: new Icon(
+                              Icons.play_arrow,
+                              color: darkAccentColor,
+                              size: 35.0,
+                            ),
+                          ),
+                        ),
+
+                        new Expanded(child: new Container()),
+                        new IconButton(
+                          icon: new Icon(Icons.skip_next,color: Colors.white, size: 35.0),
+                          onPressed: () {},
+                        ),
+                        new Expanded(child: new Container()),
+                      ],
+                    ),
+                    ),
+                  ],
+                ),
+              ),
+            )
+          ],
+        )
+        // This trailing comma makes auto-formatting nicer for build methods.
+        );
   }
 }
